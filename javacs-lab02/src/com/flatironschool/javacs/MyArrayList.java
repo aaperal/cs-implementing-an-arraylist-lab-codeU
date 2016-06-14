@@ -202,7 +202,10 @@ public class MyArrayList<E> implements List<E> {
 
 	@Override
 	public E set(int index, E element) {
-		// TODO: fill in this method.
+		if (index < 0 || index >= size) {
+			throw new IndexOutOfBoundsException();
+		}
+		array[index] = element;
 		return null;
 	}
 

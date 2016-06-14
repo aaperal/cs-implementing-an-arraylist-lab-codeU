@@ -111,8 +111,12 @@ public class MyArrayList<E> implements List<E> {
 
 	@Override
 	public int indexOf(Object target) {
-		// TODO: fill in this method
-		return 0;
+		for (int i = 0; i < size; i++) {
+			if (equals(target,array[i])) {
+				return i;
+			}
+		}
+		return -1;
 	}
 
 	/** Checks whether an element of the array is the target.
@@ -182,8 +186,12 @@ public class MyArrayList<E> implements List<E> {
 
 	@Override
 	public E remove(int index) {
-		// TODO: fill in this method.
-		return null;
+		E old = get(index);
+		for (int i = index; i < size-1; i++) {
+			array[i] = array[i+1];
+		}
+		size--;
+		return old;
 	}
 
 	@Override
@@ -202,11 +210,9 @@ public class MyArrayList<E> implements List<E> {
 
 	@Override
 	public E set(int index, E element) {
-		if (index < 0 || index >= size) {
-			throw new IndexOutOfBoundsException();
-		}
+		E current = get(index);
 		array[index] = element;
-		return null;
+		return current;
 	}
 
 	@Override

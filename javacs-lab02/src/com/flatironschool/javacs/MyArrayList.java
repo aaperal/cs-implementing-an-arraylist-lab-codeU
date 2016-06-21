@@ -62,7 +62,15 @@ public class MyArrayList<E> implements List<E> {
 		if (index < 0 || index > size) {
 			throw new IndexOutOfBoundsException();
 		}
-		// TODO: fill in the rest of this method
+		add(element);
+
+		for(int i = size-1; i>index;i--) {
+			array[i] = array[i-1];
+		}
+
+		array[index] = element;
+
+		
 	}
 
 	@Override
